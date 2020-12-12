@@ -1,16 +1,18 @@
 package com.example.movies.adapters
 
-import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.movies.R
+import com.example.movies.details.MovieItemDetailedActivity
 import com.example.movies.objects.MoviesInfo
+import kotlinx.android.synthetic.main.movie_item.view.*
 
 class MovieItemAdapter(
-    private val movieList: ArrayList<MoviesInfo>,
-    private val context: Context
+    private val moviesList: ArrayList<MoviesInfo>
 ) :
     RecyclerView.Adapter<MovieItemAdapter.ViewHolder>() {
 
@@ -19,19 +21,28 @@ class MovieItemAdapter(
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setContent(movieList[position])
+        holder.setContent(moviesList[position])
     }
 
-    override fun getItemCount(): Int = movieList.size
+    override fun getItemCount(): Int = moviesList.size
 
-    private fun getImage(imageName: String): Int =
-        context.resources.getIdentifier(imageName, "drawable", context.packageName)
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    inner class ViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
         fun setContent(moviesInfo: MoviesInfo) {
-//            Glide.with(context).load(getImage(movieList[position])).into(holder.movieImage)
-//            val movieImage: ImageView = itemView.movie_item
+            with(moviesInfo) {
+                itemView.movie_title.text = movies[adapterPosition].title
+                Glide.with(itemView.context).load(movies[adapterPosition].imageUrl)
+                    .into(itemView.movie_image)
+
+                itemView.setOnClickListener() {
+                    itemView.context.startActivity(
+                        Intent(itemView.context, MovieItemDetailedActivity::class.java).apply {
+                            putExtra("movie_id", movies[adapterPosition].id.toString())
+                            putExtra("image_url", movies[adapterPosition].imageUrl)
+                        }
+                    )
+                }
+            }
         }
     }
 }
