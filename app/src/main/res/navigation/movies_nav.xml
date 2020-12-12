@@ -5,10 +5,9 @@
     android:id="@+id/my_nav.xml"
     app:startDestination="@id/movie_item_fragment">
 
-    <!-- // TODO change name  android:name="com.example.movies.MainActivity"-->
     <fragment
         android:id="@+id/movie_item_fragment"
-        android:name="com.example.movies.MainActivity"
+        android:name="com.example.movies.movies.MovieItemFragment"
         tools:layout="@layout/movie_item_fragment">
         <action
             android:id="@+id/movie_detailed_action"
@@ -16,6 +15,6 @@
     </fragment>
     <fragment
         android:id="@+id/movie_detailed_fragment"
-        android:name="com.example.movies.MainActivity"
+        android:name="com.example.movies.details.MovieItemDetailedFragment"
         tools:layout="@layout/movie_detailed_fragment" />
 </navigation>

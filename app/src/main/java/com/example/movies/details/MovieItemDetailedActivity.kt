@@ -1,4 +1,4 @@
-package com.example.movies.movies
+package com.example.movies.details
 
 class MovieItemDetailedActivity {
 }
