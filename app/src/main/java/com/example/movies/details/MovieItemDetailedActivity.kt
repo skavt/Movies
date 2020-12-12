@@ -1,4 +1,6 @@
 package com.example.movies.details
 
-class MovieItemDetailedActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class MovieItemDetailedActivity  : AppCompatActivity() {
 }
