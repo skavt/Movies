@@ -4,14 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.movies.R
-import kotlinx.android.synthetic.main.movie_item.view.*
+import com.example.movies.objects.MoviesInfo
 
 class MovieItemAdapter(
-    private val movieList: ArrayList<String>,
+    private val movieList: ArrayList<MoviesInfo>,
     private val context: Context
 ) :
     RecyclerView.Adapter<MovieItemAdapter.ViewHolder>() {
@@ -21,7 +19,7 @@ class MovieItemAdapter(
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Glide.with(context).load(getImage(movieList[position])).into(holder.movieImage)
+        holder.setContent(movieList[position])
     }
 
     override fun getItemCount(): Int = movieList.size
@@ -31,6 +29,9 @@ class MovieItemAdapter(
 
     inner class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
-        val movieImage: ImageView = itemView.movie_item
+        fun setContent(moviesInfo: MoviesInfo) {
+//            Glide.with(context).load(getImage(movieList[position])).into(holder.movieImage)
+//            val movieImage: ImageView = itemView.movie_item
+        }
     }
 }
