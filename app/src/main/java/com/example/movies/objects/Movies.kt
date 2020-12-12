@@ -1,6 +1,6 @@
 package com.example.movies.objects
 
-class Movies(
+data class Movies(
     val id: Int,
     val title: String,
     val date: String,
