@@ -13,20 +13,27 @@ import kotlinx.android.synthetic.main.movie_item_fragment.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.Collections.addAll
 
 class MovieItemFragment : Fragment(R.layout.movie_item_fragment) {
 
     private val listOfMovies = ArrayList<MoviesInfo>()
     private var jsonApi = JsonApi.create().getMovies()
+    private var adapter: MovieItemAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         movie_item.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        movie_item.adapter = MovieItemAdapter(listOfMovies)
+        adapter = MovieItemAdapter(listOfMovies)
+        movie_item.adapter = adapter
 
         jsonApi.enqueue(object : Callback<MoviesInfo> {
             override fun onResponse(call: Call<MoviesInfo>, response: Response<MoviesInfo>) {
+                val movieResponse = response.body()
+                listOfMovies.clear()
+                movieResponse?.let{listOfMovies.addAll(listOf(it))}
+                adapter?.notifyDataSetChanged()
                 Log.d("Successssssssssss", response.body().toString())
             }
 
