@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movies.R
-import com.example.movies.details.MovieItemDetailedActivity
+import com.example.movies.details.MovieDetailedActivity
 import com.example.movies.objects.MoviesInfo
 import kotlinx.android.synthetic.main.movie_item.view.*
 
@@ -36,7 +36,7 @@ class MovieItemAdapter(
 
                 itemView.setOnClickListener() {
                     itemView.context.startActivity(
-                        Intent(itemView.context, MovieItemDetailedActivity::class.java).apply {
+                        Intent(itemView.context, MovieDetailedActivity::class.java).apply {
                             putExtra("movie_id", movies[adapterPosition].id.toString())
                             putExtra("image_url", movies[adapterPosition].imageUrl)
                         }
