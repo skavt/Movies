@@ -11,10 +11,10 @@
         tools:layout="@layout/movie_fragment">
         <action
             android:id="@+id/movie_detailed_action"
-            app:destination="@id/info_fragment" />
+            app:destination="@id/activity_movie_detailed" />
     </fragment>
     <fragment
-        android:id="@+id/info_fragment"
+        android:id="@+id/activity_movie_detailed"
         android:name="com.example.movies.details.InfoFragment"
-        tools:layout="@layout/info_fragment" />
+        tools:layout="@layout/activity_movie_detailed" />
 </navigation>

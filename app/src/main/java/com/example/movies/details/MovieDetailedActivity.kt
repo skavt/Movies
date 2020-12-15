@@ -1,6 +1,7 @@
 package com.example.movies.details
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.movies.R
@@ -12,11 +13,10 @@ class MovieDetailedActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_detailed)
 
-        val viewPager = findViewById<ViewPager>(R.id.viewPager)
-        val tabLayout = findViewById<TabLayout>(R.id.tabLayout)
+        val viewPager = findViewById<ViewPager>(R.id.view_pager)
+        val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
 
         viewPager.adapter = MovieDetailedAdapter(supportFragmentManager)
-
         tabLayout.setupWithViewPager(viewPager)
     }
 }

@@ -16,7 +16,7 @@ class MovieDetailedAdapter(fragmentManager: FragmentManager) :
             else -> CastFragment()
         }
 
-    override fun getPageTitle(position: Int): CharSequence? =
+    override fun getPageTitle(position: Int): CharSequence =
         when (position) {
             0 -> "Info"
             else -> "Cast"

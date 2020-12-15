@@ -35,9 +35,7 @@ class MovieAdapter(
 
                 itemView.setOnClickListener() {
                     itemView.context.startActivity(
-                        Intent(itemView.context, MovieDetailedActivity::class.java).apply {
-                            putExtra("movie_id", id.toString())
-                        }
+                        Intent(itemView.context, MovieDetailedActivity::class.java)
                     )
                 }
             }
