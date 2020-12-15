@@ -3,15 +3,10 @@ package com.example.movies.details
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.movies.R
-import com.example.movies.adapters.MovieAdapter
-import com.example.movies.objects.Movies
 import com.example.movies.services.MovieModel
 import kotlinx.android.synthetic.main.info_fragment.*
-import kotlinx.android.synthetic.main.movie_fragment.*
-import kotlinx.android.synthetic.main.movie_item.view.*
 
 
 class InfoFragment(positionId: Int) : Fragment(R.layout.info_fragment) {
