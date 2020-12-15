@@ -1,6 +1,7 @@
 package com.example.movies.details
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movies.R
 import kotlinx.android.synthetic.main.activity_movie_detailed.*
