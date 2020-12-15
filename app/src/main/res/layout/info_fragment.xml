@@ -16,7 +16,7 @@
         android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/got" />
+        android:src="@drawable/got" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:text="Game Of Thrones" />
+                android:text="Game Of Thrones" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,7 +78,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:text="18 April 2011" />
+                android:text="18 April 2011" />
         </LinearLayout>
 
         <LinearLayout
@@ -108,7 +108,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:text="English" />
+                android:text="English" />
         </LinearLayout>
 
         <LinearLayout
@@ -139,7 +139,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:text="8" />
+                android:text="8" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
