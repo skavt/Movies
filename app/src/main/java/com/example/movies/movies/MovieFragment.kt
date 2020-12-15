@@ -6,27 +6,26 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movies.R
-import com.example.movies.adapters.MovieItemAdapter
+import com.example.movies.adapters.MovieAdapter
 import com.example.movies.api.JsonApi
 import com.example.movies.objects.Movies
 import com.example.movies.objects.MoviesInfo
-import kotlinx.android.synthetic.main.movie_item_fragment.*
+import kotlinx.android.synthetic.main.movie_fragment.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.Collections.addAll
 
-class MovieItemFragment : Fragment(R.layout.movie_item_fragment) {
+class MovieFragment : Fragment(R.layout.movie_fragment) {
 
     private val listOfMovies = ArrayList<Movies>()
     private var jsonApi = JsonApi.create().getMovies()
-    private var adapter: MovieItemAdapter? = null
+    private var adapter: MovieAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         movie_item.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        adapter = MovieItemAdapter(listOfMovies)
+        adapter = MovieAdapter(listOfMovies)
         movie_item.adapter = adapter
 
         jsonApi.enqueue(object : Callback<MoviesInfo> {

@@ -9,13 +9,12 @@ import com.bumptech.glide.Glide
 import com.example.movies.R
 import com.example.movies.details.MovieDetailedActivity
 import com.example.movies.objects.Movies
-import com.example.movies.objects.MoviesInfo
 import kotlinx.android.synthetic.main.movie_item.view.*
 
-class MovieItemAdapter(
+class MovieAdapter(
     private val moviesList: ArrayList<Movies>
 ) :
-    RecyclerView.Adapter<MovieItemAdapter.ViewHolder>() {
+    RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.movie_item, parent, false)
@@ -38,7 +37,6 @@ class MovieItemAdapter(
                     itemView.context.startActivity(
                         Intent(itemView.context, MovieDetailedActivity::class.java).apply {
                             putExtra("movie_id", id.toString())
-                            putExtra("image_url", imageUrl)
                         }
                     )
                 }

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movies">
         <activity
-            android:name=".movies.MovieItemActivity"
+            android:name=".movies.MovieActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
         </activity>
         <activity
             android:name=".details.MovieDetailedActivity"
-            android:parentActivityName=".movies.MovieItemActivity" />
+            android:parentActivityName=".movies.MovieActivity" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
