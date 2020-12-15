@@ -1,9 +1,11 @@
 package com.example.movies.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.movies.R
 import com.example.movies.objects.Cast
 import kotlinx.android.synthetic.main.cast_item.view.*
@@ -18,22 +20,19 @@ class CastAdapter(
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.setContent(castList[position])
-        holder.setContent()
+        holder.setContent(castList[position])
     }
 
-    //    override fun getItemCount(): Int = castList.size
-    override fun getItemCount(): Int = 1
+    override fun getItemCount(): Int = castList.size
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        //        fun setContent(cast: Cast) {
-        fun setContent() {
-//            with(cast) {
-            itemView.full_name.text = "fullName"
-            itemView.role_name.text = "role"
-//                Glide.with(itemView.context).load(imageUrl).into(itemView.cast_image)
-//            }
+        fun setContent(cast: Cast) {
+            with(cast) {
+                itemView.full_name.text = fullName
+                itemView.role_name.text = role
+                Glide.with(itemView.context).load(imageUrl).into(itemView.cast_image)
+            }
         }
     }
 }
