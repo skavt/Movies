@@ -9,9 +9,10 @@ import com.example.movies.adapters.CastAdapter
 import com.example.movies.objects.Cast
 import kotlinx.android.synthetic.main.cast_fragment.*
 
-class CastFragment : Fragment(R.layout.cast_fragment) {
+class CastFragment(positionId: Int) : Fragment(R.layout.cast_fragment) {
 
     private val listOfCast = ArrayList<Cast>()
+    private val moviePosition = positionId
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

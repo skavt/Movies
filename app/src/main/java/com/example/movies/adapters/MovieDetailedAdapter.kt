@@ -6,14 +6,17 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.movies.details.CastFragment
 import com.example.movies.details.InfoFragment
 
-class MovieDetailedAdapter(fragmentManager: FragmentManager) :
+class MovieDetailedAdapter(fragmentManager: FragmentManager, moviePosition: Int) :
     FragmentStatePagerAdapter(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+
+    private val positionId = moviePosition
+
     override fun getCount(): Int = 2
 
     override fun getItem(position: Int): Fragment =
         when (position) {
-            0 -> InfoFragment()
-            else -> CastFragment()
+            0 -> InfoFragment(positionId)
+            else -> CastFragment(positionId)
         }
 
     override fun getPageTitle(position: Int): CharSequence =

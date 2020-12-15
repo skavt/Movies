@@ -35,7 +35,9 @@ class MovieAdapter(
 
                 itemView.setOnClickListener() {
                     itemView.context.startActivity(
-                        Intent(itemView.context, MovieDetailedActivity::class.java)
+                        Intent(itemView.context, MovieDetailedActivity::class.java).apply {
+                            putExtra("movie_position", adapterPosition.toString())
+                        }
                     )
                 }
             }

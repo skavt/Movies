@@ -14,8 +14,9 @@ class MovieDetailedActivity : AppCompatActivity() {
 
         val viewPager = findViewById<ViewPager>(R.id.view_pager)
         val tabLayout = findViewById<TabLayout>(R.id.tab_layout)
+        val moviePosition = intent.getStringExtra("movie_position").toString().toInt()
 
-        viewPager.adapter = MovieDetailedAdapter(supportFragmentManager)
+        viewPager.adapter = MovieDetailedAdapter(supportFragmentManager, moviePosition)
         tabLayout.setupWithViewPager(viewPager)
     }
 }
