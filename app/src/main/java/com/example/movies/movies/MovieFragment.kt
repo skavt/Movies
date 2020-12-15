@@ -7,9 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movies.R
 import com.example.movies.adapters.MovieAdapter
-import com.example.movies.api.JsonApi
+import com.example.movies.services.JsonApi
 import com.example.movies.objects.Movies
 import com.example.movies.objects.MoviesInfo
+import com.example.movies.services.MovieModel
 import kotlinx.android.synthetic.main.movie_fragment.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,29 +18,18 @@ import retrofit2.Response
 
 class MovieFragment : Fragment(R.layout.movie_fragment) {
 
-    private val listOfMovies = ArrayList<Movies>()
-    private var jsonApi = JsonApi.create().getMovies()
-    private var adapter: MovieAdapter? = null
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        movie_item.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        adapter = MovieAdapter(listOfMovies)
-        movie_item.adapter = adapter
-
-        jsonApi.enqueue(object : Callback<MoviesInfo> {
-            override fun onResponse(call: Call<MoviesInfo>, response: Response<MoviesInfo>) {
-                val movieResponse = response.body()
-                listOfMovies.clear()
-                movieResponse?.movies?.let { listOfMovies.addAll(it) }
-                adapter?.notifyDataSetChanged()
-                Log.d("Success response", response.body().toString())
+        val viewModel = MovieModel()
+        viewModel.movieLiveData.observe(
+            viewLifecycleOwner,
+            {
+                movie_item.layoutManager =
+                    LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                movie_item.adapter = MovieAdapter(it.movies as ArrayList<Movies>)
             }
-
-            override fun onFailure(call: Call<MoviesInfo>, t: Throwable) {
-                Log.d("Error response", t.message.toString())
-            }
-        })
+        )
+        viewModel.getMovies()
     }
 }

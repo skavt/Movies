@@ -1,4 +1,4 @@
-package com.example.movies.api
+package com.example.movies.services
 
 import com.example.movies.objects.MoviesInfo
 import retrofit2.Call
