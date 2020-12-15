@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movies.R
 import com.example.movies.adapters.MovieItemAdapter
 import com.example.movies.api.JsonApi
+import com.example.movies.objects.Movies
 import com.example.movies.objects.MoviesInfo
 import kotlinx.android.synthetic.main.movie_item_fragment.*
 import retrofit2.Call
@@ -17,7 +18,7 @@ import java.util.Collections.addAll
 
 class MovieItemFragment : Fragment(R.layout.movie_item_fragment) {
 
-    private val listOfMovies = ArrayList<MoviesInfo>()
+    private val listOfMovies = ArrayList<Movies>()
     private var jsonApi = JsonApi.create().getMovies()
     private var adapter: MovieItemAdapter? = null
 
@@ -32,13 +33,13 @@ class MovieItemFragment : Fragment(R.layout.movie_item_fragment) {
             override fun onResponse(call: Call<MoviesInfo>, response: Response<MoviesInfo>) {
                 val movieResponse = response.body()
                 listOfMovies.clear()
-                movieResponse?.let{listOfMovies.addAll(listOf(it))}
+                movieResponse?.movies?.let { listOfMovies.addAll(it) }
                 adapter?.notifyDataSetChanged()
-                Log.d("Successssssssssss", response.body().toString())
+                Log.d("Success response", response.body().toString())
             }
 
             override fun onFailure(call: Call<MoviesInfo>, t: Throwable) {
-                Log.d("Errorrrrrrrrrrrrrr", t.message.toString())
+                Log.d("Error response", t.message.toString())
             }
         })
     }
