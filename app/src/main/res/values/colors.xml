@@ -9,6 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#d9d9d9</color>
     <color name="pink">#b30059</color>
-    <color name="green">#068376</color>
-    <color name="darkGreen">#03493F</color>
+    <color name="green">#008577</color>
+    <color name="darkGreen">#00574b</color>
 </resources>
