@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/cast_image"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_margin="15dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
@@ -21,22 +21,29 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/got" />
 
-        <TextView
-            android:id="@+id/full_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="17dp"
-            android:textStyle="bold"
-            tools:text="Firstname Lastname" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/role_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginTop="42dp"
-            tools:text="Firstname Lastname" />
+            <TextView
+                android:id="@+id/full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                tools:text="Firstname Lastname" />
+
+            <TextView
+                android:id="@+id/role_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="85dp"
+                android:layout_marginTop="10dp"
+                tools:text="Firstname Lastname" />
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
