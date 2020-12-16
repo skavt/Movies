@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav.xml"
-    app:startDestination="@id/movie_item_fragment">
+    app:startDestination="@id/movie_fragment">
 
     <fragment
-        android:id="@+id/movie_item_fragment"
+        android:id="@+id/movie_fragment"
         android:name="com.example.movies.movies.MovieFragment"
         tools:layout="@layout/movie_fragment">
         <action
             android:id="@+id/movie_detailed_action"
-            app:destination="@id/activity_movie_detailed" />
+            app:destination="@id/info_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/activity_movie_detailed"
+        android:id="@+id/info_fragment"
         android:name="com.example.movies.details.InfoFragment"
-        tools:layout="@layout/activity_movie_detailed" />
+        tools:layout="@layout/info_fragment" />
 </navigation>
